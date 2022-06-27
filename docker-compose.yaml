@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: unless-stopped
+    ports:
+      - "80:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+
+  database:
+    image: mysql:5.7.22
+    container_name: database
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: database_book
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+    ports:
+      - "33068:3306"
