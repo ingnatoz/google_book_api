@@ -21,5 +21,5 @@ $ docker-compose exec backend pytest
 ```
 ## API documentation
 
-- http://
+- https://documenter.getpostman.com/view/4638883/UzBsJjVo
 
